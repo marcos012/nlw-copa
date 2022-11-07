@@ -38,7 +38,6 @@ export function New() {
       setTitle('');
 
     } catch (error) {
-      console.log(error);
       toast.show({
         title: 'Não foi possível criar o bolão',
         placement: 'top',

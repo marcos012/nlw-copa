@@ -33,7 +33,6 @@ export function Details() {
       const response = await api.get(`/pools/${id}`);
       setPoolDetails(response.data.pool);
     } catch (error) {
-      console.log(error);
       toast.show({
         title: 'Não foi possível carregar os detalhes do bolão',
         placement: 'top',
