@@ -32,7 +32,7 @@
   </em>
 </p>
 
-## Project
+## Projeto
 
 O NLW Copa foi realizado durante o evendo NLW 10, da Rocketseat. Consiste em uma aplicação para criar bolões dos jogos da copa do mundo.
 
@@ -54,9 +54,12 @@ Protótipos do projeto:  [Figma](https://www.figma.com/community/file/1169028343
 **Necessário:**
 
 Node 18
+
+<br>
 <br>
 
 **Backend:**
+
 Crie um arquivo `.env` com o seguinte conteudo para apontar o arquivo do banco de dados:
 
 ```bash
