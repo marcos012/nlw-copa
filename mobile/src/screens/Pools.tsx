@@ -25,7 +25,6 @@ export function Pools() {
       const response = await api.get('/pools');
       setPools(response.data.pools);
     } catch (error) {
-      console.log(error);
       toast.show({
         title: 'Não foi possível carregar os bolões',
         placement: 'top',

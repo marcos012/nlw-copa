@@ -31,7 +31,6 @@ export default function Home(props: HomeProps) {
 
       setPoolTitle('')
     } catch (err) {
-      console.log(err);
       alert('Falha ao criar o bolão, tente novamente!')
     }
   }
