@@ -28,8 +28,12 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
   const [isUserLoading, setIsUserLoading] = useState(false);
   const [user, setUser] = useState<UserProps>({} as UserProps);
 
+  // console.log(AuthSessions.makeRedirectUri({ useProxy: true }))
 
+  console.log(process.env.CLIENT_ID);
+  
   const [_, response, promptAsync] = Google.useAuthRequest({
+    // clientId: '291531392761-s565spio5rd02gnfb19s2ljbog3bcm85.apps.googleusercontent.com',// process.env.CLIENT_ID,
     clientId: process.env.CLIENT_ID,
     redirectUri: AuthSessions.makeRedirectUri({ useProxy: true }),
     scopes: ['profile', 'email'],
@@ -52,6 +56,7 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
       setIsUserLoading(true);
 
       const tokenResponse = await api.post('/users', { access_token });
+      console.log(tokenResponse.data.token)
       api.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.data.token}`;
 
       const userInfoResponse = await api.get('/me');

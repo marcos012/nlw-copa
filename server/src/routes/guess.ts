@@ -23,9 +23,12 @@ export async function guessRoutes(fastify: FastifyInstance) {
       secondTeamPoints: z.number(),
     });
 
+
     const { poolId, gameId } = createGuessParams.parse(request.params)
     const { firstTeamPoints, secondTeamPoints } = createGuessBody.parse(request.body)
 
+    console.log(poolId, gameId, firstTeamPoints, secondTeamPoints);
+    
     const participant = await prisma.participant.findUnique({
       where: {
         userId_poolId: {
@@ -63,7 +66,7 @@ export async function guessRoutes(fastify: FastifyInstance) {
     })
 
     if (!game) {
-      return reply.status(400).send({
+      return reply.status(404).send({
         message: "Game not found."
       })
     }
